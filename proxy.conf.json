@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+    "target": "https://127.0.0.1:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
+}
