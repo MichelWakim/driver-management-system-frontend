@@ -1,0 +1,75 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <h1 class="text-4xl font-bold mb-8 text-center mt-4">{{ editing ? 'Edit' : 'Add' }} Driver</h1>
+  <form class="max-w-screen-md mx-auto" [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="firstName">
+        First Name
+      </label>
+      <input
+        type="text"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="firstName"
+        name="firstName"
+        formControlName="firstName"
+      />
+      <div *ngIf="driverForm.controls['firstName']?.invalid && (driverForm.controls['firstName']?.dirty || driverForm.controls['firstName']?.touched)" class="text-red-500 mt-1">
+        <span *ngIf="driverForm.controls['firstName']?.errors?.['required']">First name is required</span>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="lastName">
+        Last Name
+      </label>
+      <input
+        type="text"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="lastName"
+        name="lastName"
+        formControlName="lastName"
+      />
+      <div *ngIf="driverForm.controls['lastName']?.invalid && (driverForm.controls['lastName']?.dirty || driverForm.controls['lastName']?.touched)" class="text-red-500 mt-1">
+        <span *ngIf="driverForm.controls['lastName']?.errors?.['required']">Last name is required</span>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="email">
+        Email
+      </label>
+      <input
+        type="email"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="email"
+        name="email"
+        formControlName="email"
+      />
+      <div *ngIf="driverForm.controls['email']?.invalid && (driverForm.controls['email']?.dirty || driverForm.controls['email']?.touched)" class="text-red-500 mt-1">
+        <span *ngIf="driverForm.controls['email']?.errors?.['required']">Email is required</span>
+        <span *ngIf="driverForm.controls['email']?.errors?.['email']">Invalid email format</span>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="phoneNumber">
+        Phone Number
+      </label>
+      <input
+        type="tel"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="phoneNumber"
+        name="phoneNumber"
+        formControlName="phoneNumber"
+      />
+      <div *ngIf="driverForm.controls['phoneNumber']?.invalid && (driverForm.controls['phoneNumber']?.dirty || driverForm.controls['phoneNumber']?.touched)" class="text-red-500 mt-1">
+        <span *ngIf="driverForm.controls['phoneNumber']?.errors?.['required']">Phone number is required</span>
+      </div>
+    </div>
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        [disabled]="driverForm.invalid"
+      >
+        {{ editing ? 'Save' : 'Add Driver' }}
+      </button>
+    </div>
+  </form>
+</div>
