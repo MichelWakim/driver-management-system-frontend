@@ -1,28 +1,45 @@
-# DriverMangementSystemFrontend
+# Driver Management System Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This project is the frontend for a driver management system.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running the project, make sure you have installed the following software on your machine:
 
-## Code scaffolding
+- Node.js (version 14 or later)
+- NPM (version 6 or later)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To install the project dependencies, run the following command in the project root directory:
 
-## Build
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running the project
 
-## Running unit tests
+To start the development server, run the following command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm start
+```
 
-## Running end-to-end tests
+This will start the server at `http://localhost:4200/`, and the app will automatically reload if you change any of the source files.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Proxy configuration
 
-## Further help
+This project uses a proxy configuration to forward API requests from the frontend to the backend. The proxy configuration is defined in the `proxy.conf.json` file and is used by the `ng serve` command to set up a proxy server.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# driver-management-system-frontend
+In the proxy configuration, we specify that any requests to `"/api/*"` should be forwarded to `https://127.0.0.1:5000`, which is the address of the backend API. We also set `secure` to `false` to ignore SSL certificate errors, and `changeOrigin` to `true` to rewrite the `Host` header of the requests. Finally, we set the `Access-Control-Allow-Origin` header to `"*"` to allow cross-origin requests from any domain.
+
+Using a proxy configuration allows us to avoid CORS issues and simplify the frontend code, as we can directly call the API using the same domain and port as the frontend. It also makes it easier to switch between development and production environments, as we can change the API endpoint in a single configuration file.
+
+## Building the project
+
+To build the project for production, run the following command:
+
+```
+npm run build
+```
+
+This will build the project and create a `dist` directory with the compiled files.
+
