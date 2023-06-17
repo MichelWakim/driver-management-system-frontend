@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {DriverService} from "./services/driver.service";
-import {IDriver} from "./interfaces/driver";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
